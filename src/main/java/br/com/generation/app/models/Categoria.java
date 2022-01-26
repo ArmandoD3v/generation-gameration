@@ -1,12 +1,19 @@
 package br.com.generation.app.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_categorias")
@@ -23,6 +30,10 @@ public class Categoria {
 	@NotBlank
 	@Size (min = 2, max = 300)
 	private String descricao;
+	
+	@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties("categoria")
+	private List<Produto> produtos = new ArrayList<>();
 
 	public long getId() {
 		return id;
