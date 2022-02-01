@@ -2,9 +2,8 @@ package br.com.generation.app.seguranca;
 
 import java.util.Optional;
 
-import org.generation.blogPessoal.model.Usuario;
-import org.generation.blogPessoal.repository.UsuarioRepository;
-import org.generation.blogPessoal.seguranca.UserDetailsImpl;
+import br.com.generation.app.models.Usuario;
+import br.com.generation.app.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -23,7 +22,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		user.orElseThrow(() -> new UsernameNotFoundException(userName + " not found."));
 		
 		return user.map(UserDetailsImpl::new).get();
-		
-		
 	
+	}
 }

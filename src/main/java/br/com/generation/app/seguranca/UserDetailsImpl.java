@@ -2,7 +2,7 @@ package br.com.generation.app.seguranca;
 
 import java.util.Collection;
 
-import org.generation.blogPessoal.model.Usuario;
+import br.com.generation.app.models.Usuario;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
